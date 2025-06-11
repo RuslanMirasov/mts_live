@@ -29,6 +29,16 @@
   border-radius: 40px;
   background: var(--red);
 
+  &.button--grey {
+    background: var(--grey);
+    color: var(--black);
+  }
+
+  &.button--black {
+    background: var(--black);
+    color: var(--white);
+  }
+
   &.full {
     width: 100%;
     min-width: 100%;

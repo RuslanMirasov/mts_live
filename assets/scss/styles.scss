@@ -6,6 +6,7 @@
 
   --white: #ffffff;
   --black: #0d0802;
+  --grey: #e5e5e5;
   --red: #ff0032;
 }
 
@@ -16,4 +17,5 @@
 @import 'typography';
 @import 'section__hero';
 @import 'section__camera';
+@import 'section__foto';
 @import 'popup';

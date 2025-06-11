@@ -1,8 +1,8 @@
 .section--hero {
   background: var(--red) url('../img/main_bg.webp') no-repeat center top;
-  background-size: 600px auto;
+  background-size: 550px auto;
   justify-content: flex-start;
-  padding-top: 448px;
+  padding-top: 418px;
 
   .title {
     text-align: center;
@@ -15,5 +15,10 @@
     min-height: 66px;
     font-size: 18px;
     font-family: var(--900);
+  }
+
+  @media (max-width: 374px) {
+    background-size: 500px auto;
+    padding-top: 400px;
   }
 }

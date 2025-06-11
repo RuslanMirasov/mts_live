@@ -5,6 +5,7 @@
   --900: "mtswide-black", sans-serif;
   --white: #ffffff;
   --black: #0d0802;
+  --grey: #e5e5e5;
   --red: #ff0032;
 }
 
@@ -77,12 +78,14 @@ body {
   justify-content: flex-start;
   align-items: center;
   align-content: center;
-  max-width: 600px;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
   min-height: 100vh;
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .section {
@@ -91,6 +94,7 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -184,6 +188,14 @@ a {
   border-radius: 40px;
   background: var(--red);
 }
+.button.button--grey {
+  background: var(--grey);
+  color: var(--black);
+}
+.button.button--black {
+  background: var(--black);
+  color: var(--white);
+}
 .button.full {
   width: 100%;
   min-width: 100%;
@@ -198,9 +210,9 @@ a {
 
 .section--hero {
   background: var(--red) url("../img/main_bg.webp") no-repeat center top;
-  background-size: 600px auto;
+  background-size: 550px auto;
   justify-content: flex-start;
-  padding-top: 448px;
+  padding-top: 418px;
 }
 .section--hero .title {
   text-align: center;
@@ -212,6 +224,12 @@ a {
   min-height: 66px;
   font-size: 18px;
   font-family: var(--900);
+}
+@media (max-width: 374px) {
+  .section--hero {
+    background-size: 500px auto;
+    padding-top: 400px;
+  }
 }
 
 .section--camera {
@@ -280,6 +298,73 @@ a {
   border-radius: 60px;
   left: 30px;
   background: url("../img/svg/foto.svg") no-repeat center center;
+}
+
+.section--foto {
+  background: var(--red);
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 414px;
+  height: auto;
+  min-height: calc(100vh - 50px);
+  flex-direction: column;
+  gap: 20px;
+  background: var(--white);
+  margin-top: auto;
+  padding: 24px;
+  border-radius: 32px;
+  text-align: center;
+  flex: 1;
+}
+.content.auto-height {
+  min-height: 50px;
+  height: auto;
+  flex: none;
+}
+.content.auto-height .buttons {
+  margin-top: 20px;
+}
+.content .title {
+  font-family: var(--900);
+}
+.content p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+.content .buttons {
+  margin-top: auto;
+}
+.content .buttons .button {
+  flex: 1;
+}
+
+.photo {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-height: 260px;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  overflow: hidden;
+  background: var(--grey);
+  border-radius: 16px;
+}
+.photo img,
+.photo video,
+.photo picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 body.locked {
@@ -366,10 +451,10 @@ body.locked {
   align-items: center;
   align-content: center;
   position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 16.26px;
-  height: 16.26px;
+  right: 8px;
+  top: 8px;
+  width: 40px;
+  height: 40px;
   transform: rotate(0deg);
   z-index: 2;
 }
@@ -379,9 +464,9 @@ body.locked {
   content: "";
   position: absolute;
   pointer-events: none;
-  width: 100%;
-  height: 3px;
-  background: var(--color);
+  width: 60%;
+  height: 2px;
+  background: var(--black);
   transition: 0s;
   transition: 0.3s;
 }
@@ -402,54 +487,33 @@ body.locked {
   transform: rotate(45deg);
 }
 
-.file-reset {
-  right: -4px;
-  top: -4px;
-  background: var(--invalid);
-  border-radius: 20px;
-  z-index: 2;
-}
-.file-reset::before, .file-reset::after {
-  width: 14px;
-  background: var(--white);
-}
-
 .popup-content {
-  width: calc(100% - 40px);
-  max-width: 335px;
+  width: calc(100% - 20px);
+  max-width: 355px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  border-radius: 20px;
+  border-radius: 32px;
   background: var(--white);
-  padding: 30px;
+  padding: 30px 25px;
 }
-.popup-content.popup-content--dark {
-  background: var(--color);
-  color: var(--white);
-}
-.popup-content.popup-content--dark .popup-close:before, .popup-content.popup-content--dark .popup-close:after,
-.popup-content.popup-content--dark .file-reset:before,
-.popup-content.popup-content--dark .file-reset:after {
-  background: var(--white);
+.popup-content .buttons .button {
+  flex: 1;
+  max-width: 75%;
 }
 
 .popup__title {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 20px;
-  line-height: 1.2;
-  font-family: var(--600);
+  text-align: left;
+  font-family: var(--700);
+  font-size: 24px;
+  line-height: 1.4;
 }
 
 .popup__subtitle {
-  text-align: center;
+  text-align: left;
+  font-family: var(--400);
   margin: 24px 0px 30px 0px;
   font-size: 16px;
   line-height: 1.2;
-}
-
-#login {
-  max-width: 375px;
 }
