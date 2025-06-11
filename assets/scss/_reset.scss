@@ -52,8 +52,13 @@ body {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+
+.loaded .main {
+  opacity: 1;
 }
 
 .section {
@@ -116,4 +121,15 @@ a {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.animate {
+  transition: transform 0.8s;
+  transform: translate(0px, 50px);
+}
+
+.loaded {
+  .animate {
+    transform: translate(0px, 0px);
+  }
 }
