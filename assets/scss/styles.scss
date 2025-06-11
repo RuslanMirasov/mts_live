@@ -1,0 +1,19 @@
+:root {
+  --400: 'mtswide-regular', sans-serif;
+  --500: 'mtswide-medium', sans-serif;
+  --700: 'mtswide-bold', sans-serif;
+  --900: 'mtswide-black', sans-serif;
+
+  --white: #ffffff;
+  --black: #0d0802;
+  --red: #ff0032;
+}
+
+@import 'mixins';
+@import 'fonts';
+@import 'reset';
+@import 'buttons';
+@import 'typography';
+@import 'section__hero';
+@import 'section__camera';
+@import 'popup';

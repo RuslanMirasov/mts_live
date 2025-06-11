@@ -1,0 +1,36 @@
+.buttons {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 16px;
+}
+
+.button {
+  display: inline-flex;
+  gap: 20px;
+  overflow: hidden;
+  z-index: 1;
+  min-height: 46px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--white);
+  font-family: var(--700);
+  padding: 12px 20px;
+  z-index: 1;
+  user-select: none;
+  outline: none;
+  border-radius: 40px;
+  background: var(--red);
+
+  &.full {
+    width: 100%;
+    min-width: 100%;
+  }
+}
