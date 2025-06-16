@@ -2,12 +2,12 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href="./../assets/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./../img/favicon.ico" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="description" content="MTC Live" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./../assets/css/styles.min.css" />
+    <link rel="stylesheet" href="./../css/styles.min.css" />
     <title>MTC Live | Камера</title>
   </head>
   <body class="body">
@@ -17,20 +17,75 @@
 
     <main class="main">
       <section class="section section--camera">
-        <div class="camera-panel">
+        <!--AR контейнер-->
+        <div id="container"></div>
+
+        <!--Элементы управления-->
+        <div class="camera-panel" id="controls">
           <!-- <p class="animate">Идёт запись...</p> -->
           <p class="animate">Нажми кнопку, чтобы сделать фото. <br />Зажми, чтобы записать видео.</p>
 
           <div class="buttons animate">
             <button class="turn-camera-button"></button>
-
-            <!--для вида записи видео добавить class "rec"-->
-            <a href="./../photo" class="camera-button"></a>
+            <!-- <button id="stopButton" class="camera-button rec"></button> -->
+            <button id="photoButton" class="camera-button" data-popup-open="photo-popup"></button>
           </div>
         </div>
+
+        <!--Информационная панель-->
+        <div id="info" class="info hidden">Ищем метку... Ннаведите камеру на&nbsp;изображение-метку</div>
       </section>
     </main>
 
-    <script src="./../assets/js/scripts.js" type="module"></script>
+    <!--POPUPS-->
+    <div class="backdrop no--bg" data-backdrop>
+      <div class="popup" data-popup>
+        <!--Блок с фотографией-->
+        <div class="popup-content" id="photo-popup">
+          <div class="content auto-height">
+            <div class="photo">
+              <img src="./../img/demo-foto.jpg" alt="" />
+            </div>
+            <h1 class="title">Готово!</h1>
+            <p>Ты теперь часть МТС Live Лето! 🎬</p>
+            <p>
+              🔗 Опубликуй это фото в соцсетях и&nbsp;поделись постами со мной, чтобы участвовать в розыгрыше. При&nbsp;публикации обязательно отметь
+              аккаунт МТС Live в ВК или ТГ.
+            </p>
+            <div class="buttons">
+              <button class="button button--grey" data-popup-close>Переснять</button>
+              <button class="button" data-popup-open="photo-popup-saved">Получить</button>
+            </div>
+          </div>
+        </div>
+
+        <!--Блок с фотографией (сохранена)-->
+        <div class="popup-content" id="photo-popup-saved">
+          <div class="content auto-height">
+            <div class="photo">
+              <img src="./../img/demo-foto.jpg" alt="" />
+            </div>
+            <p>Сохранено на устройстве</p>
+            <div class="buttons">
+              <button class="button button--grey" data-popup-close>Переснять</button>
+              <button class="button" data-popup-open="test">Получить</button>
+            </div>
+          </div>
+        </div>
+
+        <!--Пример всплывашки-->
+        <div class="popup-content" id="test">
+          <button class="popup-close" data-popup-close></button>
+          <h2 class="popup__title">Модальное окно</h2>
+          <p class="popup__subtitle">Текст модального окна в&nbsp;несколько строк с&nbsp;призывом к&nbsp;действию</p>
+          <div class="buttons">
+            <button class="button button--black" data-popup-close>Отмена</button>
+            <button class="button" data-popup-close>Ок</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./../js/scripts.js" type="module"></script>
   </body>
 </html>

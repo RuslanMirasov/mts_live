@@ -1,5 +1,13 @@
 .section--camera {
   background: var(--red);
+
+  #container {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+  }
 }
 
 .camera-panel {
@@ -9,6 +17,7 @@
   color: var(--white);
   position: relative;
   padding-top: 50px;
+  z-index: 2;
 
   p {
     position: relative;
@@ -70,4 +79,25 @@
   border-radius: 60px;
   left: 30px;
   background: url('../img/svg/foto.svg') no-repeat center center;
+}
+
+.info {
+  display: block;
+  position: fixed;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--white);
+  font-size: 14px;
+  line-height: 1.4;
+  transition: 0.3s;
+  z-index: 2;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
